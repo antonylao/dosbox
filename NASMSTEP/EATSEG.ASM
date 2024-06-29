@@ -3,7 +3,7 @@
 ; Code model: Real mode Segmented model
 ; Version: 1.0
 ; Created date: 28/06/2024
-; Updated date: 28/06/2024
+; Updated date: 29/06/2024
 ; Author: Antony Lao
 ; Description: Following Assembly Step by Step Book
 ;              by Jeff Duntemann
@@ -36,8 +36,8 @@
 
    mov sp, stacktop    ; Point SP to the top of the stack
 
-   mov dx, eatmsg      ; Mem data ref without [] loads the address
-   mov ah, 9           ; Function 9 displays text to standard output
+   mov dx, eatmsg      ; Mem data ref without [] loads the offset address
+   mov ah, 9           ; Function 9 displays text at DS:DX to standard output
    int 21H             ; makes the call into DOS
 
    mov ax, 04C00H      ; Exits the program. ErrorLevel is set to AL (here 0)

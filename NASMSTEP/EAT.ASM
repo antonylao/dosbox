@@ -3,7 +3,7 @@
 ; Code model: Real mode Flat model
 ; Version: 1.0
 ; Created date: 28/06/2024
-; Updated date: 28/06/2024
+; Updated date: 29/06/2024
 ; Author: Antony Lao
 ; Description: Following the EAT.ASM program
 ;              from the 'Assembly Language Step by Step 2nd Edition'
@@ -14,11 +14,11 @@
 [ORG 0100h] ; Set beginning address of the code.
 
 [SECTION .text]  ; Section containing code
-START:           ; Start label: like a bookmark for jump fonctions
-  mov dx, eatmsg ; Mem data without [] loads the address of the variable
+START:           ; Start label: like a bookmark for jump functions
+  mov dx, eatmsg ; Mem data without [] loads the offset address of the variable
   mov ah, 9      ; Function 9 displays text to standard output
   int 21h        ; int 21h makes the call to DOS
-  mov ax, 04C00h ; exits the program
+  mov ax, 04C00h ; Exits the program. ErrorLevel is set to AL (here 0) 
   int 21h        ; returns control to DOS
 
 [SECTION .data]  ; Section containing initialized data
